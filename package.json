@@ -19,7 +19,7 @@
     "port": 3000
   },
   "production": {
-    "localBaseUrl": "https://my-addon.anypaas.com",
+    "localBaseUrl": "https://shrouded-brook-10263.herokuapp.com",
     "redisEnv": "REDISCLOUD_URL",
     "port": "$PORT"
   },
