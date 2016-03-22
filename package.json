@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "hipchat-mail-message",
-=======
   "name": "hipchat-translate",
->>>>>>> 9475bdf0a8b8f7c3e2f6c8a3808a08a211afbbeb
   "displayName": "HipChat Translate",
   "description": "Text translation inside your HipChat group!",
   "version": "0.1.0",
