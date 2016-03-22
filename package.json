@@ -1,0 +1,31 @@
+{
+  "name": "hipchat-translate”,
+  "displayName": "HipChat Translate",
+  "description": "Text translation inside your HipChat group!",
+  "version": "0.1.0",
+  "author": {
+    "name": "Pietro Schaff",
+    "url": "http://atlassian.com"
+  },
+  "license": "Apache 2.0",
+  "engines": {
+    "node": "^0.12.7"
+  },
+  "scripts": {
+    "web": "node --harmony web.js",
+    "web-dev": "nodemon --harmony -e js,json,css,hbs web.js"
+  },
+  "development": {
+    "port": 3000
+  },
+  "production": {
+    "localBaseUrl": "https://my-addon.anypaas.com",
+    "redisEnv": "REDISCLOUD_URL",
+    "port": "$PORT"
+  },
+  "dependencies": {
+    "ac-koa": "^0.2.6",
+    "ac-koa-hipchat": "^0.2.14",
+    "ac-koa-hipchat-keenio": "^0.2.0"
+  }
+}
