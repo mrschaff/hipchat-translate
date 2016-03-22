@@ -15,14 +15,6 @@
     "web": "node --harmony web.js",
     "web-dev": "nodemon --harmony -e js,json,css,hbs web.js"
   },
-  "development": {
-    "port": 3000
-  },
-  "production": {
-    "localBaseUrl": "https://shrouded-brook-10263.herokuapp.com",
-    "redisEnv": "REDISCLOUD_URL",
-    "port": "$PORT"
-  },
   "dependencies": {
     "ac-koa": "^0.2.6",
     "ac-koa-hipchat": "^0.2.14",
