@@ -1,5 +1,5 @@
 {
-  "name": "hipchat-translate”,
+  "name": "hipchat-mail-message",
   "displayName": "HipChat Translate",
   "description": "Text translation inside your HipChat group!",
   "version": "0.1.0",
@@ -26,6 +26,7 @@
   "dependencies": {
     "ac-koa": "^0.2.6",
     "ac-koa-hipchat": "^0.2.14",
-    "ac-koa-hipchat-keenio": "^0.2.0"
+    "ac-koa-hipchat-keenio": "^0.2.0",
+    "latest-version": "^2.0.0"
   }
 }

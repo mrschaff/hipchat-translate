@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # What is this?
 
 This is a basic project that demonstrates how to quickly get started developing a HipChat integration using [ac-koa-hipchat](https://bitbucket.org/atlassianlabs/ac-koa-hipchat).
@@ -68,6 +67,3 @@ Now, to install the add-on at hipchat.com, see the [ac-koa instructions](https:/
 # How do I write an add-on?
 
 This repository helps you get started writing an add-on with ac-koa-hipchat. For reference on how to use ac-koa, please refer to the [README](https://bitbucket.org/atlassianlabs/ac-koa-hipchat).
-=======
-# hipchat-translate
->>>>>>> 46a4f5614f55b3cbf01baad30afeb2d9cfafed44

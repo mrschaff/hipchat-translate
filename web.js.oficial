@@ -1,0 +1,46 @@
+var track = require('ac-koa-hipchat-keenio').track;
+
+var ack = require('ac-koa').require('hipchat');
+var pkg = require('./package.json');
+var app = ack(pkg);
+
+
+var querystring = require('querystring');
+var https = require('https');
+
+var yandex_token = 'trnsl.1.1.20160317T173735Z.2be744fb3540d280.25573e00053497a5547e1c8f01cce7376f48c9f9';
+var host = 'https://translate.yandex.net/';
+var text_format = 'plain';
+
+var addon = app.addon()
+  .hipchat()
+  .allowGlobal(true)
+  .allowRoom(true)
+  .scopes('send_notification');
+
+track(addon);
+
+if (process.env.DEV_KEY) {
+  addon.key(process.env.DEV_KEY);
+}
+
+addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *() {
+    var global = !this.tenant.room;
+    var match = this.match;
+    var room = this.room;
+    var command = match && match[1] === ':' && match[2];
+    if (command) {
+    	if (/\w{2}-\w{2}\s.*/i.test(command)) {
+		
+      	yield this.roomClient.sendNotification('I got inside the matrix');
+		} else if (/\w{2}-\w{2}/i.test(command)) {
+		yield this.roomClient.sendNotification('Add a text to be translated!');
+		} else {
+		yield this.roomClient.sendNotification('Add a valid language to translate in the correct format (i.e: en-ru, fr-en)');
+		}	
+  	} else {
+		yield this.roomClient.sendNotification('<b>Usage</b>: translates the text you insert from language l1 to language l2 (i.e: /translate :en-fr home)');
+ 	}
+});
+
+app.listen();

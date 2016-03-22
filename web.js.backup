@@ -1,0 +1,32 @@
+var ack = require('ac-koa').require('hipchat');
+var pkg = require('./package.json');
+var app = ack(pkg);
+var yandex_token = 'trnsl.1.1.20160317T173735Z.2be744fb3540d280.25573e00053497a5547e1c8f01cce7376f48c9f9';
+var text_format = 'plain';
+
+var addon = app.addon()
+  .hipchat()
+  .allowRoom(true)
+  .scopes('send_notification');
+
+if (process.env.DEV_KEY) {
+  addon.key(process.env.DEV_KEY);
+}
+ 
+addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *() {
+  	var global = !this.tenant.room;
+	var match = this.match;
+	var room = this.room;
+	var translate = '';
+  	var command = match && match[1] === ':' && match[2];
+  	var subject = match && !match[1] && match[2];
+	if (command) {
+		if (/^enru$/.test(command)) {
+		yield this.roomClient.sendNotification('I got it.');
+		} else {
+		yield this.roomClient.sendNotification('Sorry, I couldn\'t translate that.');
+		}
+	}
+});
+ 
+app.listen();
