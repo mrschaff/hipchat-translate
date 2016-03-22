@@ -1,11 +1,15 @@
 {
+<<<<<<< HEAD
   "name": "hipchat-mail-message",
+=======
+  "name": "hipchat-translate",
+>>>>>>> 9475bdf0a8b8f7c3e2f6c8a3808a08a211afbbeb
   "displayName": "HipChat Translate",
   "description": "Text translation inside your HipChat group!",
   "version": "0.1.0",
   "author": {
     "name": "Pietro Schaff",
-    "url": "http://atlassian.com"
+    "url": "https://atlassian.com"
   },
   "license": "Apache 2.0",
   "engines": {
@@ -19,7 +23,7 @@
     "port": 3000
   },
   "production": {
-    "localBaseUrl": "https://my-addon.anypaas.com",
+    "localBaseUrl": "https://calm-spire-60171.herokuapp.com",
     "redisEnv": "REDISCLOUD_URL",
     "port": "$PORT"
   },
