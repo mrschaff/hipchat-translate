@@ -32,7 +32,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 			var urlcall = url+'&lang='+langtext[0]+'&text='+langtext.slice(1).join("+");
 			var me = this;
 			get(urlcall, (err, res) => {
-				if (err) throw err
+				if (err) throw err;
 				res.setEncoding('utf8');
 				res.on('data', (buffer) => {
 					if(buffer){
