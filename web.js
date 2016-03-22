@@ -28,10 +28,9 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
     if (command) {
     	if (/\w{2}-\w{2}\s.*/i.test(command)) {
 			var result = "";
-	    	var langtext = match[2].split(' ');
+	    		var langtext = match[2].split(' ');
 			var urlcall = url+'&lang='+langtext[0]+'&text='+langtext.slice(1).join("+");
 			var me = this;
-			//console.log(urlcall);
 			get(urlcall, (err, res) => {
 				if (err) throw err
 				res.setEncoding('utf8');
@@ -39,7 +38,6 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 					if(buffer){
 						var resultObj = JSON.parse(buffer);
 						result += resultObj.text;
-					//	console.log(buffer);
 					}
 				});
  				res.on('end', () => {
