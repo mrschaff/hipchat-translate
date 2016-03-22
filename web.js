@@ -3,7 +3,7 @@ var track = require('ac-koa-hipchat-keenio').track;
 var ack = require('ac-koa').require('hipchat');
 var pkg = require('./package.json');
 var app = ack(pkg);
-var get = require('simple-get');
+var get1 = require('simple-get');
 
 var yandex_token = 'trnsl.1.1.20160317T173735Z.2be744fb3540d280.25573e00053497a5547e1c8f01cce7376f48c9f9';
 var url = 'https://translate.yandex.net/api/v1.5/tr.json/translate?key='+yandex_token;
@@ -31,7 +31,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 	    		var langtext = match[2].split(' ');
 			var urlcall = url+'&lang='+langtext[0]+'&text='+langtext.slice(1).join("+");
 			var me = this;
-			get(urlcall, (err, res) => {
+			get1(urlcall, (err, res) => {
 				if (err) {
 					console.log(err);
 					me.roomClient.sendNotification('An error occurred. Please contact your administrator for more information.');
