@@ -5,15 +5,23 @@
   "version": "0.1.0",
   "author": {
     "name": "Pietro Schaff",
-    "url": "http://atlassian.com"
+    "url": "https://atlassian.com"
   },
   "license": "Apache 2.0",
   "engines": {
     "node": "^0.12.7"
   },
   "scripts": {
-    "web": "node --harmony web.js",
-    "web-dev": "nodemon --harmony -e js,json,css,hbs web.js"
+    "web": "node web.js",
+    "web-dev": "nodemon -e js,json,css,hbs web.js"
+  },
+  "development": {
+    "port": 3000
+  },
+  "production": {
+    "localBaseUrl": "https://calm-spire-60171.herokuapp.com",
+    "redisEnv": "REDISCLOUD_URL",
+    "port": "$PORT"
   },
   "dependencies": {
     "ac-koa": "^0.2.6",
