@@ -12,8 +12,8 @@
     "node": "^0.12.7"
   },
   "scripts": {
-    "web": "node web.js",
-    "web-dev": "nodemon -e js,json,css,hbs web.js"
+    "web": "node --harmony web.js",
+    "web-dev": "nodemon --harmony -e js,json,css,hbs web.js"
   },
   "development": {
     "port": 3000
