@@ -20,7 +20,7 @@
   },
   "production": {
     "localBaseUrl": "https://calm-spire-60171.herokuapp.com",
-    "redisEnv": "REDISCLOUD_URL",
+    "redisEnv": "REDISTOGO_URL",
     "port": "$PORT"
   },
   "dependencies": {
