@@ -1,6 +1,6 @@
 {
-  "name": "hipchat-translate",
-  "displayName": "HipChat Translate",
+  "name": "hipchat-translate-dev",
+  "displayName": "HipChat Translate DEV",
   "description": "Text translation inside your HipChat group! Type /translate in your chat and see how it works!",
   "version": "0.1.0",
   "author": {
