@@ -47,7 +47,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
  					if (result = 'undefined') {
  						me.roomClient.sendNotification('Use a valid language code. Please see https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/');	
  					} else {
-						me.roomClient.sendNotification(result);
+						me.roomClient.sendNotification(result+'potato');
  					}
 				});
 			});			
