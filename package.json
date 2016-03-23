@@ -1,7 +1,7 @@
 {
   "name": "hipchat-translate",
   "displayName": "HipChat Translate",
-  "description": "Text translation inside your HipChat group!",
+  "description": "Text translation inside your HipChat group! Type /translate in your chat and see how it works!",
   "version": "0.1.0",
   "author": {
     "name": "Pietro Schaff",
