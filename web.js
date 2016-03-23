@@ -44,7 +44,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 					}
 				});
  				res.on('end', () => {
- 					if (res == 'undefined') {
+ 					if (res = 'undefined') {
  						me.roomClient.sendNotification('Use a valid language code. Please see https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/');	
  					} else {
 						me.roomClient.sendNotification(result);
