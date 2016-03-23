@@ -36,7 +36,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 					console.log(err);
 					me.roomClient.sendNotification('An error occurred. Please contact your administrator for more information.');
 				};
-				res.setEncoding('utf16');
+				//res.setEncoding('utf8');
 				res.on('data', (buffer) => {
 					if(buffer){
 						var resultObj = JSON.parse(buffer);
