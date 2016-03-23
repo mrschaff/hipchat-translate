@@ -44,10 +44,10 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 					}
 				});
  				res.on('end', () => {
- 					if (result = 'undefined') {
+ 					if (result == 'undefined') {
  						me.roomClient.sendNotification('Use a valid language code. Please see https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/');	
  					} else {
-						me.roomClient.sendNotification(result+'potato');
+						me.roomClient.sendNotification(result);
  					}
 				});
 			});			
