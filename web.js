@@ -53,6 +53,8 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 			});			
 		} else if (/\w{2}-\w{2}/i.test(command)) {
 			yield this.roomClient.sendNotification('Add a text to be translated!');
+		} else if (/\w{1}(.{2})-\w{1}(.{2})/i.test(command)) {
+			yield this.roomClient.sendNotification('Add a valid language to translate in the correct format (i.e: en-ru, fr-en)');
 		} else {
 			yield this.roomClient.sendNotification('Add a valid language to translate in the correct format (i.e: en-ru, fr-en)');
 		}	
