@@ -46,6 +46,9 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
  				res.on('end', () => {
 					me.roomClient.sendNotification(result);
 				});
+				if (res = 'undefined') {
+					me.roomClient.sendNotification('Please enter a supported language. For the full list, please see https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/');
+				}
 			});			
 		} else if (/\w{2}-\w{2}/i.test(command)) {
 			yield this.roomClient.sendNotification('Add a text to be translated!');
