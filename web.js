@@ -44,11 +44,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 					}
 				});
  				res.on('end', () => {
- 					if (result = 'undefined') {
-					me.roomClient.sendNotification('Please enter a supported language. For the full list, please see https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/');
-					} else {
 					me.roomClient.sendNotification(result);
-					}
 				});
 			});			
 		} else if (/\w{2}-\w{2}/i.test(command)) {
