@@ -123,7 +123,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 		}	
   	}  else {
 		yield this.roomClient.sendNotification('<b>Usage</b>: translates the text you insert from language l1 to language l2 (i.e: /translate :en-fr home)');
- 		yield this.roomClient.sendNotification('For the list of support languages please visit https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/');
+ 		yield this.roomClient.sendNotification('For the list of support languages please run <i>/translate :langs </i> ');
 	}
 });
 
