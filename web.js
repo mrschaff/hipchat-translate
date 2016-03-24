@@ -54,6 +54,75 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 		} else {
 			yield this.roomClient.sendNotification('Please follow the correct format for translation (i.e: /translate :en-fr house).');
 		}	
+  	} else if (/\slangs/i.test(command)) {
+  		yield this.roomClient.sendNotification('
+  		<pre>
+			Langs:
+				Czech -	cs
+				Arabic - ar
+				Armenian - hy
+				Azerbaijan - az
+				Belarusian - be
+				Bulgarian - bg
+				Vietnamese - vi
+				Haitian (Creole) - ht
+				Georgian - ka
+				Yiddish - he
+				Kazakh - kk
+				Japanese - ja
+				Ukrainian - uk
+				Tatar - tt
+				Thai - th
+				Tajik - tg
+				Serbian - sr
+				Russian - ru
+				Persian - fa
+				Mongolian - mn
+				Macedonian - mk
+				Maltese - mt
+				Korean - ko
+				Chinese - zh
+				Kyrgyz - ky
+				Greek - el
+				Estonian - et
+				Swedish - sv
+				Croatian - hr
+				French - fr
+				Finish - fi
+				Uzbek - uz
+				Turkish - tr
+				Tagalog - tl
+				Swahili - sw
+				English - en
+				Portuguese - pt
+				Italian - it
+				Slovenian - sl
+				Slovakian - sk
+				Romanian - ro
+				Polish - pl
+				Norwegian - no
+				German - de
+				Malay - ms
+				Malagasy - mg
+				Lithuanian - lt
+				Latvian - lv
+				Latin - la
+				Catalan - ca
+				Spanish - es
+				Indonesian - id
+				Irish - ga
+				Icelandic - is
+				Danish - da
+				Galician - gl
+				Dutch - nl
+				Hungarian - hu
+				Bosnian - bs
+				Welsh - cy
+				Afrikaans - af
+				Basque - eu
+				Albanian - sq
+		</pre>
+  		');
   	} else {
 		yield this.roomClient.sendNotification('<b>Usage</b>: translates the text you insert from language l1 to language l2 (i.e: /translate :en-fr home)');
  		yield this.roomClient.sendNotification('For the list of support languages please visit https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/');
