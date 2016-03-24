@@ -52,7 +52,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 				});
 			});			
 		} else if (/langs/i.test(command)) {
-  		yield this.roomClient.sendNotification(['<textarea>',
+  		yield this.roomClient.sendNotification(['<pre>',
 			'Langs:',
 				'Czech - cs',
 				'Arabic - ar',
@@ -117,7 +117,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 				'Afrikaans - af',
 				'Basque - eu',
 				'Albanian - sq',
-				'</textarea>'].join("\n"));
+				'</pre>'].join("\n"));
 		} else {
 			yield this.roomClient.sendNotification('Please follow the correct format for translation (i.e: /translate :en-fr house).');
 		}	
