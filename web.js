@@ -24,7 +24,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
     var global = !this.tenant.room;
     var match = this.match;
     var room = this.room;
-    var command = match && match[1] === ':' && match[2];
+    var command = match && match[1] === ' ' && match[2];
     if (command) {
     	if (/\w{2}-\w{2}\s.*/i.test(command)) {
 			var result = "";
