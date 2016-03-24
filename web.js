@@ -54,9 +54,8 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 		} else {
 			yield this.roomClient.sendNotification('Please follow the correct format for translation (i.e: /translate :en-fr house).');
 		}	
-  	} else if (/\slangs/i.test(command)) {
-  		yield this.roomClient.sendNotification([
-  		'<pre>',
+  	} else if (/\slangs/i.test(match[2])) {
+  		yield this.roomClient.sendNotification(['<pre>',
 			'Langs:',
 				'Czech - cs',
 				'Arabic - ar',
