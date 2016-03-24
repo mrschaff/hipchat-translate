@@ -29,7 +29,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
     	if (/\w{2}-\w{2}\s.*/i.test(command)) {
 			var result = "";
 	    		var langtext = match[2].split(' ');
-			var urlcall = url+'&lang='+langtext[0]+'&text='+langtext.slice(1).join("+");
+			var urlcall = url+'&lang='+langtext[0]+'&text='+encodeURIComponent(langtext.slice(1).join(" "));
 			var me = this;
 			get1(urlcall, (err, res) => {
 				if (err) {
@@ -44,17 +44,86 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 					}
 				});
  				res.on('end', () => {
-					me.roomClient.sendNotification(result);
+ 					if (result == 'undefined') {
+ 						me.roomClient.sendNotification('Use a valid language code. Please see https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/');	
+ 					} else {
+						me.roomClient.sendNotification(result);
+ 					}
 				});
 			});			
-		} else if (/\w{2}-\w{2}/i.test(command)) {
-			yield this.roomClient.sendNotification('Add a text to be translated!');
+		} else if (/langs/i.test(command)) {
+  		yield this.roomClient.sendNotification(['<pre>',
+			'Langs:',
+				'Czech - cs',
+				'Arabic - ar',
+				'Armenian - hy',
+				'Azerbaijan - az',
+				'Belarusian - be',
+				'Bulgarian - bg',
+				'Vietnamese - vi',
+				'Haitian (Creole) - ht',
+				'Georgian - ka',
+				'Yiddish - he',
+				'Kazakh - kk',
+				'Japanese - ja',
+				'Ukrainian - uk',
+				'Tatar - tt',
+				'Thai - th',
+				'Tajik - tg',
+				'Serbian - sr',
+				'Russian - ru',
+				'Persian - fa',
+				'Mongolian - mn',
+				'Macedonian - mk',
+				'Maltese - mt',
+				'Korean - ko',
+				'Chinese - zh',
+				'Kyrgyz - ky',
+				'Greek - el',
+				'Estonian - et',
+				'Swedish - sv',
+				'Croatian - hr',
+				'French - fr',
+				'Finish - fi',
+				'Uzbek - uz',
+				'Turkish - tr',
+				'Tagalog - tl',
+				'Swahili - sw',
+				'English - en',
+				'Portuguese - pt',
+				'Italian - it',
+				'Slovenian - sl',
+				'Slovakian - sk',
+				'Romanian - ro',
+				'Polish - pl',
+				'Norwegian - no',
+				'German - de',
+				'Malay - ms',
+				'Malagasy - mg',
+				'Lithuanian - lt',
+				'Latvian - lv',
+				'Latin - la',
+				'Catalan - ca',
+				'Spanish - es',
+				'Indonesian - id',
+				'Irish - ga',
+				'Icelandic - is',
+				'Danish - da',
+				'Galician - gl',
+				'Dutch - nl',
+				'Hungarian - hu',
+				'Bosnian - bs',
+				'Welsh - cy',
+				'Afrikaans - af',
+				'Basque - eu',
+				'Albanian - sq',
+				'</pre>'].join("\n"));
 		} else {
-			yield this.roomClient.sendNotification('Add a valid language to translate in the correct format (i.e: en-ru, fr-en)');
+			yield this.roomClient.sendNotification('Please follow the correct format for translation (i.e: /translate :en-fr house).');
 		}	
-  	} else {
+  	}  else {
 		yield this.roomClient.sendNotification('<b>Usage</b>: translates the text you insert from language l1 to language l2 (i.e: /translate :en-fr home)');
- 		yield this.roomClient.sendNotification('For the list of support languages please visit https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/');
+ 		yield this.roomClient.sendNotification('For the list of support languages please run <i>/translate :langs </i> ');
 	}
 });
 
