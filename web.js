@@ -54,11 +54,9 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 		} else {
 			yield this.roomClient.sendNotification('Please follow the correct format for translation (i.e: /translate :en-fr house).');
 		}	
-  	} else if (/^\/translate/i.test(command)) {
+  	} else {
 		yield this.roomClient.sendNotification('<b>Usage</b>: translates the text you insert from language l1 to language l2 (i.e: /translate :en-fr home)');
  		yield this.roomClient.sendNotification('For the list of support languages please visit https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/');
-	} else {
-		yield this.roomClient.sendNotification('Please follow the correct format for translation (i.e: /translate :en-fr house).');
 	}
 });
 
