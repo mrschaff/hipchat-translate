@@ -29,7 +29,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
     	if (/\w{2}-\w{2}\s.*/i.test(command)) {
 			var result = "";
 	    		var langtext = match[2].split(' ');
-			var urlcall = url+'&lang='+langtext[0]+'&text='+encodeURIComponent(langtext.slice(1)).join("+");
+			var urlcall = url+'&lang='+langtext[0]+'&text='+encodeURIComponent(langtext.slice(1).join(" "));
 			var me = this;
 			get1(urlcall, (err, res) => {
 				if (err) {
