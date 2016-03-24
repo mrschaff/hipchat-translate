@@ -55,7 +55,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 			yield this.roomClient.sendNotification('Please follow the correct format for translation (i.e: /translate :en-fr house).');
 		}	
   	} else if (/\slangs/i.test(command)) {
-  		yield this.roomClient.sendNotification('
+  		yield this.roomClient.sendNotification(`
   		<pre>
 			Langs:
 				Czech -	cs
@@ -122,7 +122,7 @@ addon.webhook('room_message', /^\/translate(?:\s+(:)?(.+?)\s*$)?/i, function *()
 				Basque - eu
 				Albanian - sq
 		</pre>
-  		');
+  		`);
   	} else {
 		yield this.roomClient.sendNotification('<b>Usage</b>: translates the text you insert from language l1 to language l2 (i.e: /translate :en-fr home)');
  		yield this.roomClient.sendNotification('For the list of support languages please visit https://tech.yandex.com/translate/doc/dg/concepts/langs-docpage/');
